@@ -1,0 +1,39 @@
+# How often should crouke daemon request for updating the local content.
+# Default is 1800 seconds.
+FEED_UPDATE = 1800
+
+# How often should crouke notify you when new update available.
+# Default is 1800 seconds. This value normally at least equal to the FEED_UPDATE
+# value. Since within the specified update interval, there will be no updates.
+#
+# Several examples:
+#
+# Feed updates every 10 mins and you get notified every 30 mins, which means
+# you will see aggregated update info everytime.
+# FEED_UPDATE = 600
+# NOTIFY = 1800
+#
+# Feed updates every 30 mins and you get notified every 30 mins, which means
+# you see exact what's new everytime, no more no less.
+# FEED_UPDATE = 1800
+# NOTIFY = 1800
+#
+NOTIFY = 30
+
+# Websites that crouke will retrieve updates from. The site MUST provide a
+# RESTful API for crouke to retrieve feeds. API CRUD standard doc can be found at
+# http://api.gnome-look.org/
+# As long as a website provides these standard CRUD actions, you can add it
+# to this list.
+#
+SITES = "api.gnome-look.org, api.kde-look.org, api.opendesktop.org, \
+         api.xfce-look.org, api.box-look.org, api.e17-stuff.org, \
+         api.beryl-themes.org, api.compiz-themes.org, api.kde-files.org, \
+         api.opentemplate.org, api.ubuntu-art.org, api.kubuntu-art.org, \
+         api.suse-art.org, api.gentoo-art.org, api.debian-art.org, \
+         api.kde-apps.org, api.gtk-apps.org, api.cli-apps.org, api.qt-apps.org, \
+         api.qt-prop.org, api.maemo-apps.org, api.java-apps.org, \
+         api.eyeos-apps.org, api.android-community.org"
+
+# temporary directory Crouke uses to store temporary data.
+TEMP_DIR = /tmp/.crouke
