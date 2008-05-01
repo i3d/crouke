@@ -48,6 +48,8 @@ class CroukeUI(object):
                      invokes this main program by setting the
                      runself to False.
         """
+        self._container_queue = []
+
         self._runself = runself
         self._conf_file = conf_file
 
@@ -73,6 +75,15 @@ class CroukeUI(object):
 
         # Set the visibility to False.
         self._visible = False
+
+        # Get the main container object and push its child to the queue.
+        # The main container is a ScrollWindow container and always only
+        # has one child.
+        # The first window always the sites in the container.
+        # Later on when user cruise the sites, the container will
+        # offload/upload its child back and forth.
+        self._main_container = self.wTree.get_widget("main_container")
+        self._container_queue.append(self._main_container.child)
         
         # Run SilentLogin and get the result
         # If user/pass cached for user already, then this should
