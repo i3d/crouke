@@ -13,3 +13,7 @@ class LoadLoginTokenError(Error):
 # Exception raised when can't write Login token.
 class SaveLoginTokenError(Error):
     pass
+
+# Exception raised when Request/Response handling error.
+class RequestHandlingError(Error):
+    pass
