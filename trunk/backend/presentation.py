@@ -64,19 +64,24 @@ class Crouke(object):
             LoadLoginCacheError: when loading the local cached login info
                                  failed.
         """
-        try:
-            login = LogInToken()
-            login.Load()
-        except excepts.LoadLoginCacheError:
-            return _.load_failed
-        else:
-            self._user, self._password = login.GetToken()
+        if not self._user or not self._password:
+            try:
+                login = LogInToken()
+                login.Load()
+            except excepts.LoadLoginCacheError:
+                return _.load_failed
+            else:
+                self._user, self._password = login.GetToken()
         
         # just pick the first site to try login since these sites
         # are all share the login info.
         if not self._client: self.SetupClient()
         retv = self._client.Get(_METHODS['CATEGORY'], server=settings.SITES[0])
-        if not retv: return _.auth_failed
+        if not retv:
+            return _.auth_failed
+        else:
+            if not LogInToken.HasLoginCache():
+                LogInToken(user=self._user, password=self._password).Save()
 
     def AddNewSite(self, site):
         """Add a new website.

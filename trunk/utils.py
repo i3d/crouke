@@ -209,3 +209,7 @@ class LogInToken(object):
     def SetToken(self, user, password):
         self.__user = user
         self.__password = password
+
+    @classmethod
+    def HasLoginCache(cls):
+        return os.path.exists(settings.LOGIN)
