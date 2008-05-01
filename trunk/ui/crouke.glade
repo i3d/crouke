@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.4.2 on Fri Apr 25 00:26:58 2008 -->
+<!--Generated with glade3 3.4.2 on Wed Apr 30 16:58:40 2008 -->
 <glade-interface>
   <widget class="GtkWindow" id="top_window">
     <property name="title" translatable="yes" context="yes" comments="An artwork aggregation and management tool for gnome-look.org website group.">Crouke</property>
     <property name="window_position">GTK_WIN_POS_CENTER</property>
-    <property name="default_width">640</property>
+    <property name="default_width">730</property>
     <property name="default_height">480</property>
     <child>
       <widget class="GtkVBox" id="background_vbox">
@@ -308,8 +308,613 @@
                         <property name="can_focus">True</property>
                         <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
                         <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+                        <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
                         <child>
-                          <placeholder/>
+                          <widget class="GtkTable" id="table3">
+                            <property name="visible">True</property>
+                            <property name="border_width">5</property>
+                            <property name="n_rows">10</property>
+                            <property name="n_columns">3</property>
+                            <property name="column_spacing">3</property>
+                            <property name="row_spacing">3</property>
+                            <child>
+                              <widget class="GtkButton" id="button16">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image17">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/KDE-Apps.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="right_attach">2</property>
+                                <property name="top_attach">7</property>
+                                <property name="bottom_attach">8</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button15">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image16">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Qt-Apps.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="top_attach">7</property>
+                                <property name="bottom_attach">8</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button14">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image15">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/eyeOS-Apps.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="right_attach">3</property>
+                                <property name="top_attach">6</property>
+                                <property name="bottom_attach">7</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button13">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image14">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Java-Apps.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="right_attach">2</property>
+                                <property name="top_attach">6</property>
+                                <property name="bottom_attach">7</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button12">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image13">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Maemo-Apps.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="top_attach">6</property>
+                                <property name="bottom_attach">7</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button10">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image11">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Qt-Prog.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="right_attach">3</property>
+                                <property name="top_attach">5</property>
+                                <property name="bottom_attach">6</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button9">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image10">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/CLI-Apps.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="right_attach">2</property>
+                                <property name="top_attach">5</property>
+                                <property name="bottom_attach">6</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button8">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image9">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/GTK-Apps.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="top_attach">5</property>
+                                <property name="bottom_attach">6</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button7">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image8">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Android-Community.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="right_attach">3</property>
+                                <property name="top_attach">4</property>
+                                <property name="bottom_attach">5</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button6">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image7">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Ubuntu-Art.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="right_attach">2</property>
+                                <property name="top_attach">4</property>
+                                <property name="bottom_attach">5</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button5">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image6">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/SuSE-Art.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="top_attach">4</property>
+                                <property name="bottom_attach">5</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button4">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image5">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Kubuntu-Art.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="right_attach">3</property>
+                                <property name="top_attach">3</property>
+                                <property name="bottom_attach">4</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button3">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image4">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Gentoo-Art.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="right_attach">2</property>
+                                <property name="top_attach">3</property>
+                                <property name="bottom_attach">4</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button2">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image3">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Debian-Art.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="top_attach">3</property>
+                                <property name="bottom_attach">4</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button19">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image19">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/KDE-Files.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="top_attach">1</property>
+                                <property name="bottom_attach">2</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button20">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image20">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/GNOME-Look.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="right_attach">2</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button21">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image21">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/KDE-Look.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button22">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image22">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/E17-Stuff.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="right_attach">2</property>
+                                <property name="top_attach">1</property>
+                                <property name="bottom_attach">2</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button23">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image23">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Xfce-Look.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="right_attach">3</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button24">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image24">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/openDesktop.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="right_attach">3</property>
+                                <property name="top_attach">1</property>
+                                <property name="bottom_attach">2</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button25">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image25">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Box-Look.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="top_attach">2</property>
+                                <property name="bottom_attach">3</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button26">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image26">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/OpenTemplate.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="right_attach">2</property>
+                                <property name="top_attach">2</property>
+                                <property name="bottom_attach">3</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button27">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <child>
+                                  <widget class="GtkImage" id="image27">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Beryl-Themes.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="right_attach">3</property>
+                                <property name="top_attach">2</property>
+                                <property name="bottom_attach">3</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                          </widget>
                         </child>
                       </widget>
                     </child>
@@ -550,7 +1155,6 @@ END OF TERMS AND CONDITIONS
     <property name="buttons">GTK_BUTTONS_YES_NO</property>
     <property name="use_markup">True</property>
     <property name="secondary_use_markup">True</property>
-    <property name="image"></property>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="err_msgdialog_vbox">
         <property name="visible">True</property>
@@ -577,7 +1181,7 @@ END OF TERMS AND CONDITIONS
   </widget>
   <widget class="GtkDialog" id="login_dialog">
     <property name="border_width">5</property>
-    <property name="title" translatable="yes">Log In</property>
+    <property name="title" translatable="yes" context="yes">Log In</property>
     <property name="modal">True</property>
     <property name="window_position">GTK_WIN_POS_CENTER_ON_PARENT</property>
     <property name="destroy_with_parent">True</property>
@@ -596,7 +1200,7 @@ END OF TERMS AND CONDITIONS
                 <property name="xalign">0</property>
                 <property name="xpad">12</property>
                 <property name="ypad">12</property>
-                <property name="label" translatable="yes">&lt;b&gt;Login to retrieve website content&lt;/b&gt;</property>
+                <property name="label" translatable="yes" context="yes">&lt;b&gt;Login to retrieve website content&lt;/b&gt;</property>
                 <property name="use_markup">True</property>
                 <property name="wrap">True</property>
               </widget>
@@ -612,7 +1216,7 @@ END OF TERMS AND CONDITIONS
                     <property name="visible">True</property>
                     <property name="xpad">10</property>
                     <property name="ypad">10</property>
-                    <property name="label" translatable="yes">&lt;b&gt;Username: &lt;/b&gt; </property>
+                    <property name="label" translatable="yes" context="yes">&lt;b&gt;Username: &lt;/b&gt; </property>
                     <property name="use_markup">True</property>
                   </widget>
                   <packing>
@@ -648,7 +1252,7 @@ END OF TERMS AND CONDITIONS
                     <property name="visible">True</property>
                     <property name="xpad">10</property>
                     <property name="ypad">10</property>
-                    <property name="label" translatable="yes">&lt;b&gt;Password: &lt;/b&gt;</property>
+                    <property name="label" translatable="yes" context="yes">&lt;b&gt;Password: &lt;/b&gt;</property>
                     <property name="use_markup">True</property>
                   </widget>
                   <packing>
@@ -689,7 +1293,7 @@ END OF TERMS AND CONDITIONS
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="label" translatable="yes">gtk-cancel</property>
+                <property name="label" translatable="yes" context="yes">gtk-cancel</property>
                 <property name="use_stock">True</property>
                 <property name="response_id">0</property>
               </widget>
@@ -699,7 +1303,7 @@ END OF TERMS AND CONDITIONS
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="label" translatable="yes">gtk-ok</property>
+                <property name="label" translatable="yes" context="yes">gtk-ok</property>
                 <property name="use_stock">True</property>
                 <property name="response_id">0</property>
               </widget>
