@@ -27,63 +27,96 @@ _CATEGORY_SEPARATER = 'x'
 
 
 class Crouke(object):
+    """The Frontend of the Crouke Client.
+
+    Provide methods to handle various different requests.
     """
-    """
+
     def __init__(self, user=None, password=None, site=None):
-        """
+        """Constructor to init the object.
+
+        Args:
+            user: the login user.
+            password: the login password.
+            site: the target website where to retrieve the content from.
         """
         self._user = user
         self._password = password
         if site and site not in settings.SITES:
             self.AddNewSite(site)
         self._site = site
+        self._client = None
+        if self._user and self._password:
+            self.SetupClient()
+
+    def SetupClient(self):
+        """Setup the Crouke client.
+        """
+        self._client = client.CroukeClient(self._user, self._password)
+        self._client.RegisterHandler('Get', client.DefaultCRUDHandler(
+                                     server=self._site,
+                                     headers=self._client._headers))
     
     def ProgrammaticLogin(self):
         """Do Programmatic login test.
+
+        Raises:
+            LoadLoginCacheError: when loading the local cached login info
+                                 failed.
         """
-        if not self._user or not self._password:
-            try:
-                login = LogInToken()
-                login.Load()
-            except excepts.LoadLoginCacheError:
-                return _.load_failed
-            else:
-                self._user, self._password = login.GetToken()
+        try:
+            login = LogInToken()
+            login.Load()
+        except excepts.LoadLoginCacheError:
+            return _.load_failed
+        else:
+            self._user, self._password = login.GetToken()
         
         # just pick the first site to try login since these sites
         # are all share the login info.
-        cat = client.CroukeClient(self._user, self._password,
-                                  settings.SITES[0]).Get(
-                                  _METHODS['CATEGORY'])
-        if not cat:
-            return _.auth_failed
+        if not self._client: self.SetupClient()
+        retv = self._client.Get(_METHODS['CATEGORY'], server=settings.SITES[0])
+        if not retv: return _.auth_failed
 
     def AddNewSite(self, site):
-        """
+        """Add a new website.
+
+        Args:
+            site: the site's server address.
         """
         settings.SITES.append(site)
 
     def GetCategory(self):
-        """
+        """Retrieve a list of category.
+
+        Returns:
+            A list of category with element of a tuple in (id, text) format.
         """
         # a list of two-element tuple ('id', 'name')
         clist = []
-        cat = client.CroukeClient(
-            self._user, self._password, self._site).Get(_METHODS['CATEGORY'])
-        if cat and cat.status.text == 'ok':
-            clist = [(i.id, i.text) for i in cat.data.category]
+        retv = self._client.Get(_METHODS['CATEGORY'])
+        if retv and retv == 'ok':
+            clist = [(i.id, i.text) for i in retv.data.category]
             #clist.sort(key=lambda k: k[1])
         return clist
 
     def GetListId(self, cat_id_list, sortmode=_SORTMODE[0], page=0):
-        """
+        """Retrieve the content list ids by given category id list and the
+        sort mode.
+
+        Args:
+            cat_id_list: category id list.
+            sortmode: sorting mode.
+            page: which page to display.
+
+        Returns:
+            A list of content ids.
         """
         content_list_id = []
         cats = ''.join([i + _CATEGORY_SEPARATER
                         for i in cat_id_list]).strip(_CATEGORY_SEPARATER)
         uri = _METHODS['LIST'] % (cats, sortmode, page)
-        lst = client.CroukeClient(self._user, self._password,
-                                  self._site).Get(uri)
+        lst = self._client.Get(uri)
         if lst and lst.status.text == 'ok':
             content_list_id = [(i.id.text, i.changed.text, i.name.text,
                                 i.score.text, i.downloads.text) 
@@ -99,16 +132,19 @@ class Crouke(object):
         return [i[0] for i in content_list_id]
 
     def GetContent(self, content_id):
+        """Retrieve the actual content data by given a content id.
+
+        Args:
+            content_id: an id key for a content.
+
+        Returns:
+            A dict reprsenting a content. 
         """
-        """
-        # a list of content elements in sequence:
+        # a content contains elements:
         # downloadlink, description, downloadsize, homepage, changelog
         # license, language, preview1, preview2, preview3, smallpreviewpic1
         content = {}
-        cont = client.CroukeClient(self._user, self._password,
-                                   self._site).Get(
-                                    _METHODS['CONTENT'] % content_id)
-                                    
+        cont = self._client.Get(_METHODS['CONTENT'] % content_id)
         if cont and cont.status.text == 'ok':
             content = content.fromkeys(client.GetElementTagFromData(cont.data),
                                        None)
@@ -120,15 +156,30 @@ class Crouke(object):
         return content
 
     def Vote(self, content_id, vote):
+        """Retrieve vote info for a given content id.
+
+        Args:
+            content_id: a content id.
+            vote: the vote info.
+
+        Returns:
+            the vote status info.
         """
-        """
-        vot = client.CroukeClient(self._user, self._password,
-                                  self._site).Get(_METHODS['VOTE'] %
-                                                       (content_id, vote))
+        vot = self._client.Get(_METHODS['VOTE'] % (content_id, vote))
         if vot: return vot.status.text
 
     def GetAll(self, sortmode=_SORTMODE[0], page=0):
-        """The default main page is to point at all category first page"""
+        """Retrieve contents from all categories.
+        
+        The default main page is to point at all category first page
+
+        Args:
+            sortmode: the sorting mode.
+            page: the default page.
+
+        Returns:
+            A tuple with a list of category and contents for the given page.
+        """
         cates = self.GetCategory()
         clists = self.GetListId([i[0] for i in cates], sortmode=sortmode,
                                 page=page)
