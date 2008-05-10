@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.4.2 on Wed Apr 30 16:58:40 2008 -->
+<!--Generated with glade3 3.4.2 on Sun May  4 15:21:26 2008 -->
 <glade-interface>
   <widget class="GtkWindow" id="top_window">
     <property name="title" translatable="yes" context="yes" comments="An artwork aggregation and management tool for gnome-look.org website group.">Crouke</property>
@@ -27,7 +27,7 @@
                     <property name="label" translatable="yes" context="yes">Remote</property>
                     <property name="use_underline">True</property>
                     <property name="stock_id">gtk-network</property>
-                    <signal name="clicked" handler="remote_clicked"/>
+                    <signal name="clicked" handler="on_remote_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -40,7 +40,7 @@
                     <property name="label" translatable="yes" context="yes">Local</property>
                     <property name="use_underline">True</property>
                     <property name="stock_id">gtk-harddisk</property>
-                    <signal name="clicked" handler="local_clicked"/>
+                    <signal name="clicked" handler="on_local_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -52,7 +52,7 @@
                     <property name="is_important">True</property>
                     <property name="use_underline">True</property>
                     <property name="stock_id">gtk-preferences</property>
-                    <signal name="clicked" handler="pref_clicked"/>
+                    <signal name="clicked" handler="on_pref_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -62,7 +62,7 @@
                   <widget class="GtkToolButton" id="about_button">
                     <property name="visible">True</property>
                     <property name="stock_id">gtk-about</property>
-                    <signal name="clicked" handler="about_clicked"/>
+                    <signal name="clicked" handler="on_about_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -74,7 +74,7 @@
                     <property name="is_important">True</property>
                     <property name="use_underline">True</property>
                     <property name="stock_id">gtk-quit</property>
-                    <signal name="clicked" handler="destory"/>
+                    <signal name="clicked" handler="on_quit_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -83,17 +83,18 @@
               </widget>
             </child>
             <child>
-              <widget class="GtkVSeparator" id="vseparator1">
+              <widget class="GtkVSeparator" id="top_bar_separator">
                 <property name="visible">True</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
+                <property name="fill">False</property>
                 <property name="padding">2</property>
                 <property name="position">1</property>
               </packing>
             </child>
             <child>
-              <widget class="GtkToolbar" id="toolbar1">
+              <widget class="GtkToolbar" id="login_toolbar">
                 <property name="visible">True</property>
                 <property name="show_arrow">False</property>
                 <property name="icon_size">GTK_ICON_SIZE_DND</property>
@@ -102,7 +103,7 @@
                     <property name="visible">True</property>
                     <property name="label" translatable="yes" context="yes">Log In</property>
                     <property name="stock_id">gtk-connect</property>
-                    <signal name="clicked" handler="go_login"/>
+                    <signal name="clicked" handler="on_login_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -113,7 +114,7 @@
                     <property name="visible">True</property>
                     <property name="label" translatable="yes" context="yes">Log Out</property>
                     <property name="stock_id">gtk-close</property>
-                    <signal name="clicked" handler="go_logout"/>
+                    <signal name="clicked" handler="on_logout_clicked"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -158,7 +159,7 @@
                             <property name="is_important">True</property>
                             <property name="label" translatable="yes" context="yes">All</property>
                             <property name="stock_id">gtk-goto-top</property>
-                            <signal name="clicked" handler="go_all"/>
+                            <signal name="clicked" handler="on_all_clicked"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -202,7 +203,7 @@
                             <property name="is_important">True</property>
                             <property name="label" translatable="yes" context="yes">Back</property>
                             <property name="stock_id">gtk-go-back</property>
-                            <signal name="clicked" handler="go_back"/>
+                            <signal name="clicked" handler="on_back_clicked"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -214,7 +215,7 @@
                             <property name="is_important">True</property>
                             <property name="label" translatable="yes" context="yes">Forward</property>
                             <property name="stock_id">gtk-go-forward</property>
-                            <signal name="clicked" handler="go_forward"/>
+                            <signal name="clicked" handler="on_forward_clicked"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -226,7 +227,7 @@
                             <property name="is_important">True</property>
                             <property name="label" translatable="yes" context="yes">Refresh</property>
                             <property name="stock_id">gtk-refresh</property>
-                            <signal name="clicked" handler="go_refresh"/>
+                            <signal name="clicked" handler="on_refresh_clicked"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -238,7 +239,7 @@
                             <property name="is_important">True</property>
                             <property name="label" translatable="yes" context="yes">Home</property>
                             <property name="stock_id">gtk-home</property>
-                            <signal name="clicked" handler="go_home"/>
+                            <signal name="clicked" handler="on_home_clicked"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -267,6 +268,7 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
+                            <signal name="activate" handler="on_find_clicked"/>
                           </widget>
                           <packing>
                             <property name="padding">5</property>
@@ -281,7 +283,7 @@
                             <property name="label" translatable="yes" context="yes">gtk-find</property>
                             <property name="use_stock">True</property>
                             <property name="response_id">0</property>
-                            <signal name="clicked" handler="go_find"/>
+                            <signal name="clicked" handler="on_find_clicked"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>
@@ -310,7 +312,7 @@
                         <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
                         <property name="shadow_type">GTK_SHADOW_ETCHED_IN</property>
                         <child>
-                          <widget class="GtkTable" id="table3">
+                          <widget class="GtkTable" id="main_table">
                             <property name="visible">True</property>
                             <property name="border_width">5</property>
                             <property name="n_rows">10</property>
@@ -318,15 +320,91 @@
                             <property name="column_spacing">3</property>
                             <property name="row_spacing">3</property>
                             <child>
-                              <widget class="GtkButton" id="button16">
+                              <widget class="GtkButton" id="android_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_android_clicked"/>
+                                <signal name="released" handler="on_android_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image17">
+                                  <widget class="GtkImage" id="img_android">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Android-Community.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="right_attach">3</property>
+                                <property name="top_attach">7</property>
+                                <property name="bottom_attach">8</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="compiz_button">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_compiz_clicked"/>
+                                <signal name="released" handler="on_compiz_clicked"/>
+                                <child>
+                                  <widget class="GtkImage" id="img_compiz">
+                                    <property name="visible">True</property>
+                                    <property name="pixbuf">../data/Compiz-Themes.org.png</property>
+                                  </widget>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="right_attach">3</property>
+                                <property name="top_attach">4</property>
+                                <property name="bottom_attach">5</property>
+                                <property name="x_options"></property>
+                                <property name="y_options"></property>
+                                <property name="x_padding">2</property>
+                                <property name="y_padding">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="kde_apps_button">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="border_width">5</property>
+                                <property name="relief">GTK_RELIEF_NONE</property>
+                                <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_kde_apps_clicked"/>
+                                <signal name="released" handler="on_kde_apps_clicked"/>
+                                <child>
+                                  <widget class="GtkImage" id="img_kde_apps">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/KDE-Apps.org.png</property>
                                   </widget>
@@ -344,15 +422,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button15">
+                              <widget class="GtkButton" id="qt_apps_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_qt_apps_clicked"/>
+                                <signal name="released" handler="on_qt_apps_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image16">
+                                  <widget class="GtkImage" id="img_qt_apps">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/Qt-Apps.org.png</property>
                                   </widget>
@@ -368,15 +448,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button14">
+                              <widget class="GtkButton" id="eyeos_apps_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_eyeos_apps_clicked"/>
+                                <signal name="released" handler="on_eyeos_apps_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image15">
+                                  <widget class="GtkImage" id="img_eyeos_apps">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/eyeOS-Apps.org.png</property>
                                   </widget>
@@ -394,15 +476,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button13">
+                              <widget class="GtkButton" id="java_apps_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_java_apps_clicked"/>
+                                <signal name="released" handler="on_java_apps_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image14">
+                                  <widget class="GtkImage" id="img_java_apps">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/Java-Apps.org.png</property>
                                   </widget>
@@ -420,15 +504,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button12">
+                              <widget class="GtkButton" id="maemo_apps_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_maemo_apps_clicked"/>
+                                <signal name="released" handler="on_maemo_apps_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image13">
+                                  <widget class="GtkImage" id="img_maemo_apps">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/Maemo-Apps.org.png</property>
                                   </widget>
@@ -444,15 +530,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button10">
+                              <widget class="GtkButton" id="qt_prog_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_qt_prog_clicked"/>
+                                <signal name="released" handler="on_qt_prog_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image11">
+                                  <widget class="GtkImage" id="img_qt_prog">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/Qt-Prog.org.png</property>
                                   </widget>
@@ -470,15 +558,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button9">
+                              <widget class="GtkButton" id="cli_apps_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_cli_apps_clicked"/>
+                                <signal name="released" handler="on_cli_apps_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image10">
+                                  <widget class="GtkImage" id="img_cli_apps">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/CLI-Apps.org.png</property>
                                   </widget>
@@ -496,36 +586,17 @@
                               </packing>
                             </child>
                             <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <widget class="GtkButton" id="button8">
+                              <widget class="GtkButton" id="gtk_apps_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_gtk_apps_clicked"/>
+                                <signal name="released" handler="on_gtk_apps_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image9">
+                                  <widget class="GtkImage" id="img_gtk_apps">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/GTK-Apps.org.png</property>
                                   </widget>
@@ -541,41 +612,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button7">
+                              <widget class="GtkButton" id="ubuntu_art_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_ubuntu_art_clicked"/>
+                                <signal name="released" handler="on_ubuntu_art_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image8">
-                                    <property name="visible">True</property>
-                                    <property name="pixbuf">../data/Android-Community.org.png</property>
-                                  </widget>
-                                </child>
-                              </widget>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="right_attach">3</property>
-                                <property name="top_attach">4</property>
-                                <property name="bottom_attach">5</property>
-                                <property name="x_options"></property>
-                                <property name="y_options"></property>
-                                <property name="x_padding">2</property>
-                                <property name="y_padding">2</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="GtkButton" id="button6">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="border_width">5</property>
-                                <property name="relief">GTK_RELIEF_NONE</property>
-                                <property name="response_id">0</property>
-                                <child>
-                                  <widget class="GtkImage" id="image7">
+                                  <widget class="GtkImage" id="img_ubuntu_art">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/Ubuntu-Art.org.png</property>
                                   </widget>
@@ -593,15 +640,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button5">
+                              <widget class="GtkButton" id="suse_art_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_suse_art_clicked"/>
+                                <signal name="released" handler="on_suse_art_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image6">
+                                  <widget class="GtkImage" id="img_suse_art">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/SuSE-Art.org.png</property>
                                   </widget>
@@ -617,15 +666,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button4">
+                              <widget class="GtkButton" id="kubuntu_art_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_kubuntu_art_clicked"/>
+                                <signal name="released" handler="on_kubuntu_art_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image5">
+                                  <widget class="GtkImage" id="img_kubuntu_art">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/Kubuntu-Art.org.png</property>
                                   </widget>
@@ -643,15 +694,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button3">
+                              <widget class="GtkButton" id="gentoo_art_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_gentoo_art_clicked"/>
+                                <signal name="released" handler="on_gentoo_art_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image4">
+                                  <widget class="GtkImage" id="img_gentoo_art">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/Gentoo-Art.org.png</property>
                                   </widget>
@@ -669,15 +722,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button2">
+                              <widget class="GtkButton" id="debian_art_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_debian_art_clicked"/>
+                                <signal name="released" handler="on_debian_art_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image3">
+                                  <widget class="GtkImage" id="img_debian_art">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/Debian-Art.org.png</property>
                                   </widget>
@@ -693,15 +748,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button19">
+                              <widget class="GtkButton" id="kde_files_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_kde_files_clicked"/>
+                                <signal name="released" handler="on_kde_files_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image19">
+                                  <widget class="GtkImage" id="img_kde_files">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/KDE-Files.org.png</property>
                                   </widget>
@@ -717,15 +774,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button20">
+                              <widget class="GtkButton" id="gnome_look_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_gnome_look_clicked"/>
+                                <signal name="released" handler="on_gnome_look_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image20">
+                                  <widget class="GtkImage" id="img_gnome_look">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/GNOME-Look.org.png</property>
                                   </widget>
@@ -741,15 +800,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button21">
+                              <widget class="GtkButton" id="kde_look_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_kde_look_clicked"/>
+                                <signal name="released" handler="on_kde_look_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image21">
+                                  <widget class="GtkImage" id="img_kde_look">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/KDE-Look.org.png</property>
                                   </widget>
@@ -763,15 +824,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button22">
+                              <widget class="GtkButton" id="e17_stuff_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_e17_stuff_clicked"/>
+                                <signal name="released" handler="on_e17_stuff_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image22">
+                                  <widget class="GtkImage" id="img_e17_stuff">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/E17-Stuff.org.png</property>
                                   </widget>
@@ -789,15 +852,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button23">
+                              <widget class="GtkButton" id="xfce_look_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_xfce_look_clicked"/>
+                                <signal name="released" handler="on_xfce_look_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image23">
+                                  <widget class="GtkImage" id="img_xfce_look">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/Xfce-Look.org.png</property>
                                   </widget>
@@ -813,15 +878,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button24">
+                              <widget class="GtkButton" id="opendesktop_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_opendesktop_clicked"/>
+                                <signal name="released" handler="on_opendesktop_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image24">
+                                  <widget class="GtkImage" id="img_opendesktop">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/openDesktop.org.png</property>
                                   </widget>
@@ -839,15 +906,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button25">
+                              <widget class="GtkButton" id="box_look_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_box_look_clicked"/>
+                                <signal name="released" handler="on_box_look_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image25">
+                                  <widget class="GtkImage" id="img_box_look">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/Box-Look.org.png</property>
                                   </widget>
@@ -863,15 +932,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button26">
+                              <widget class="GtkButton" id="opentemplate_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_opentemplate_clicked"/>
+                                <signal name="released" handler="on_opentemplate_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image26">
+                                  <widget class="GtkImage" id="img_opentemplate">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/OpenTemplate.org.png</property>
                                   </widget>
@@ -889,15 +960,17 @@
                               </packing>
                             </child>
                             <child>
-                              <widget class="GtkButton" id="button27">
+                              <widget class="GtkButton" id="beryl_themes_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="border_width">5</property>
                                 <property name="relief">GTK_RELIEF_NONE</property>
                                 <property name="response_id">0</property>
+                                <signal name="clicked" handler="on_beryl_themes_clicked"/>
+                                <signal name="released" handler="on_beryl_themes_clicked"/>
                                 <child>
-                                  <widget class="GtkImage" id="image27">
+                                  <widget class="GtkImage" id="img_beryl_themes">
                                     <property name="visible">True</property>
                                     <property name="pixbuf">../data/Beryl-Themes.org.png</property>
                                   </widget>

@@ -48,6 +48,19 @@ class Crouke(object):
         self._client = None
         if self._user and self._password:
             self.SetupClient()
+    
+    def Logout(self):
+        """Reset the user and password to None."""
+        self._user = None
+        self._password = None
+    
+    def SetUser(self, user):
+        """Set the login user"""
+        self._user = user
+    
+    def SetPassword(self, password):
+        """Set the password"""
+        self._password = password
 
     def SetupClient(self):
         """Setup the Crouke client.
