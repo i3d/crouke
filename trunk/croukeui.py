@@ -24,6 +24,7 @@ from backend import presentation
 from config import settings
 from config import texts as _
 import utils
+from navigator import Navigator
 
 
 class CroukeUI(object):
@@ -48,53 +49,17 @@ class CroukeUI(object):
                      invokes this main program by setting the
                      runself to False.
         """
-        # a stack to store the views
-        self._remote_stack = { 'main': None,
-                               'kde-apps': [],
-                               'qt_apps': [],
-                               'eyeos_apps': [],
-                               'java_apps': [],
-                               'maemo_apps': [],
-                               'qt_prog': [],
-                               'cli_apps': [],
-                               'gtk_apps': [],
-                               'android': [],
-                               'ubuntu_art': [],
-                               'suse_art': [],
-                               'kubuntu_art': [],
-                               'gentoo_art': [],
-                               'debian_art': [],
-                               'kde_files': [],
-                               'gnome_look': [],
-                               'kde_look': [],
-                               'xfce_look': [],
-                               'e17_stuff': [],
-                               'opentemplate': [],
-                               'opendesktop': [],
-                               'box_look': [],
-                               'beryl_themes': [],
-                               'compiz': [],
-                            }
+        # The main page showing all sites
+        self._main_page = None
 
-
-        self._local_stack = []
+        # The local page
+        self._local_page = None
         
-        # pos used as stack pointer and also the current web page
-        # initial is -2, pointing to None.
-        # The first website list UI is -1.
-        # Any website going into will start with 0.
-        
-        # Actual index number in stack equals to pos number + 1.
-        # e.g. website icons list in stack will be indexed 0 with
-        # pos number -1. If user goes to www.gnome-look.org, then
-        # the second UI stored in stack would be 1 and pos 0 (which is
-        # at web page 0).
-        self._pos = -2
-        
-        # on remote view or local view
-        self._on_remote = True
-
+        # Whether the UI is running as a standalon app
+        # or invoked by the tray icon.
         self._runself = runself
+
+        # the configuration file.
         self._conf_file = conf_file
 
         # Build the main UI window from glade
@@ -110,6 +75,8 @@ class CroukeUI(object):
         self.window.connect("delete_event", self.close)
 
         # Set the visibility to False.
+        # Whether turn it visible or not will be determined later by
+        # the runself state.
         self._visible = False
 
         # Get the main container object and push its child to the queue.
@@ -119,7 +86,8 @@ class CroukeUI(object):
         # Later on when user cruise the sites, the container will
         # offload/upload its child back and forth.
         self._main_container = self.wTree.get_widget("main_container")
-        self._remote_stack.append(self._main_container.child)
+        self._main_page = self._main_container.child
+        self._navi = Navigator(self._main_page)
         
         # the api client
         self._client = None
